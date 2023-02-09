@@ -76,21 +76,6 @@ public class RequestPostServlet extends HttpServlet {
 		// 2) 포워딩
 		view.forward(request, response);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }

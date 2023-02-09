@@ -38,7 +38,7 @@ public class RequestGetServlet extends HttpServlet {
 		 * 
 		 * 두번째 매개변수인 HttpServletResponse response에는 요청처리 후 응답할 때 사용하는 객체
 		 * 
-		 * 요청을 처리하기 우해 요청시 전달된 값(사용자가 입력한 값)들을 뽑는다.
+		 * 요청을 처리하기 위해 요청시 전달된 값(사용자가 입력한 값)들을 뽑는다.
 		 * request의 parameter영역안에 존재 => key-value세트로 담겨있다(name속성값=value값)
 		 * 
 		 * request이 parameter영역으로부터 데이터를 뽑는 메소드
