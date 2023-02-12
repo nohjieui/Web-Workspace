@@ -103,7 +103,7 @@
 
     <br><br>
     
-    <form action="/jsp/pizzaOrder2.do" method="post">
+    <form action="/jsp/pizzaOrder3.do" method="post">
 	    피자 :
 	    <select name="pizza">
 	        <option>치즈피자</option>
