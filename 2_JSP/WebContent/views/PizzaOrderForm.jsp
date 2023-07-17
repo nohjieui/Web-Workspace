@@ -4,21 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>피자 주문페이지</title>
 <style>
-    table *{border: 1px solid black;}
-
-    table {border-collapse: collapse;}
-
-    th,td {padding: 8px 8px;}
+	table *{border: 1px solid black;}
+	table{border-collapse: collapse;}
+	th,td {padding: 10px;}
 </style>
 </head>
 <body>
 	<%@ include file="datePrint.jsp" %>
 	
 	<h1>피자 아카데미</h1>
-
-     <table>
+	<table>
 		<tr>
 		    <th>종류</th>
 		    <th>이름</th>
@@ -28,7 +25,6 @@
 		    <th>이름</th>
 		    <th>가격</th>
 		</tr>
-		
 		<tr>
 		    <td rowspan="5">피자</td>
 		    <td>치즈피자</td>
@@ -99,18 +95,17 @@
 		    <td>파마산 치즈가루</td>
 		    <td>100</td>                    
 		</tr>
-     </table>
+	</table>
 
     <br><br>
-    
-    <form action="/jsp/pizzaOrder2.do" method="post">
-	    피자 :
+    <form action="/jsp/PizzaOrder2.do" method="post">
+	    피자 : 
 	    <select name="pizza">
-	        <option>치즈피자</option>
-	        <option>콤비네이션피자</option>
-	        <option>포테이토피자</option>
-	        <option>고구마피자</option>
-	        <option>불고기피자</option>
+	    	<option>치즈피자</option>
+	    	<option>콤비네이션피자</option>
+	    	<option>포테이토피자</option>
+	    	<option>고구마피자</option>
+	    	<option>불고기피자</option>
 	    </select>
 	    <br>
 	    토핑 :
@@ -136,5 +131,6 @@
 	    <br><br>
 	    <input type="submit" value="확인">
     </form>
+	
 </body>
 </html>

@@ -2,7 +2,6 @@ package com.kh.controller;
 
 import java.io.IOException;
 
-import javax.servlet.DispatcherType;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.filters.SetCharacterEncodingFilter;
+
 /**
  * Servlet implementation class PizzaOrder
  */
-@WebServlet("/pizzaOrder2.do")
+@WebServlet("/PizzaOrder2.do")
 public class PizzaOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,6 +29,7 @@ public class PizzaOrder extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -35,10 +37,9 @@ public class PizzaOrder extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 인코딩 설정
+		
 		request.setCharacterEncoding("UTF-8");
 		
-		// 요청시 전달된 값들은 request parameter영역에 담겨있음
 		String pizza = request.getParameter("pizza");
 		String[] toppings = request.getParameterValues("topping");
 		String[] sides = request.getParameterValues("side");
@@ -54,8 +55,8 @@ public class PizzaOrder extends HttpServlet {
 		}
 		
 		if(toppings != null) {
-			for(String topping : toppings) {
-				switch(topping) {
+			for(String toppingss : toppings) {
+				switch(toppingss) {
 				case "고구마무스"  : price += 1000; break;
 				case "콘크림무스"  : price += 1500; break;
 				case "파인애플토핑" : 
@@ -84,18 +85,15 @@ public class PizzaOrder extends HttpServlet {
 			}
 		}
 		
-		// 응답페이지를 만드는 과정을 JSP에게 위임
-		// 단, 그 응답화면(JSP)에서 필요로하는 데이터들을 request객체에 담아서 보내줘야함
-		// request의 attribute영역에 담아서 보내줄 예정(key, value세트로)
 		request.setAttribute("pizza", pizza);
-		request.setAttribute("topping", toppings);
-		request.setAttribute("side", sides);
+		request.setAttribute("toppings", toppings);
+		request.setAttribute("sides", sides);
 		request.setAttribute("price", price);
 		
-		// 응답하고자하는 뷰(JSP)를 선택하면서 생성
-		 RequestDispatcher view = request.getRequestDispatcher("views/PizzaPay.jsp");	
+		RequestDispatcher view = request.getRequestDispatcher("views/PizzaPay.jsp");
 		
-		view.forward(request,response);
+		view.forward(request, response);
+
 	}
 
 }
